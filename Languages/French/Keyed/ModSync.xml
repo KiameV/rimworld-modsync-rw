@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<ModSync>ModSync</ModSync>
+	
+	<!-- ModSync Window -->
+	<ModSync.UpdateMods>Mettre à jour Mods</ModSync.UpdateMods>
+	<ModSync.ShowingActiveMods>Affichage des mods non-Steam actifs</ModSync.ShowingActiveMods>
+	<ModSync.Update>Mise à jour</ModSync.Update>
+	<ModSync.NAModSync>Indisponible sur ModSync.ninja</ModSync.NAModSync>
+	
+	<ModSync.ModName>Nom du Mod</ModSync.ModName>
+	<ModSync.LocalVersion>Version locale</ModSync.LocalVersion>
+	<ModSync.AvailableVersion>Version disponible</ModSync.AvailableVersion>
+	<ModSync.GetUpdate>Obtenir la mise à jour</ModSync.GetUpdate>
+	<ModSync.ModNotBreakingSave>L'auteur du mod a signalé que cette mise à jour est sans danger pour les sauvegardes existantes.</ModSync.ModNotBreakingSave>
+	
+	<!-- Mod Window -->
+	<ModSync.UpdateOnModSync>Mettre à jour sur ModSync.ninja</ModSync.UpdateOnModSync>
+	<ModSync.UploadToModSync>Envoyer sur ModSync.ninja</ModSync.UploadToModSync>
+	<!-- Top right text in the Mod window. {version} will be replaced by the mod's version -->
+	<ModSync.ModSyncVersion>Version sur ModSync.ninja : {version}</ModSync.ModSyncVersion>
+	
+	<!-- Mod Update Window -->
+	<ModSync.UpdateOnModSyncNinja>Mettre à jour sur ModSync.ninja</ModSync.UpdateOnModSyncNinja>
+	<ModSync.InvalidSecurityKey>Clé de sécurité invalide pour {mod_name}</ModSync.InvalidSecurityKey>
+	<!-- {previous_version} will be replaced with the mod's version that is stored in ModSync.ninja's database -->
+	<ModSync.PreviousVersion>Version précédente : {previous_version}</ModSync.PreviousVersion>
+	<ModSync.NewVersion>Nouvelle version</ModSync.NewVersion>
+	<ModSync.QuickCopy>Recopier</ModSync.QuickCopy>
+	<ModSync.SecurityKey>Clé de sécurité</ModSync.SecurityKey>
+	<ModSync.PatchNotes>Notes de patch (facultatif)</ModSync.PatchNotes>
+	<ModSync.BugFix>Correction de bugs</ModSync.BugFix>
+	<ModSync.FeatureAdded>Fonctionnalité ajoutée</ModSync.FeatureAdded>
+	<ModSync.LanguageUpdate>Mise à jour linguistique</ModSync.LanguageUpdate>
+	<ModSync.IsSaveBreaking>Nécessite une nouvelle sauvegarde</ModSync.IsSaveBreaking>
+	
+	<!-- Error Messages -->
+	<ModSync.OldVersion>Cette version est inférieure à la version actuelle sur ModSync.ninja.</ModSync.OldVersion>
+	<ModSync.NotFound>Impossible de trouver ce mod.</ModSync.NotFound>
+	<ModSync.InvalidKey>Clé de sécurité invalide.</ModSync.InvalidKey>
+	<ModSync.NoVersion>Aucune version indiquée.</ModSync.NoVersion>
+	<ModSync.DeletedMod>Ce mod a été supprimé.</ModSync.DeletedMod>
+	<ModSync.UnverifiedMod>Ce mod n' a pas encore été vérifié.</ModSync.UnverifiedMod>
+	<ModSync.DatabaseError>Il y a eu un problème avec la base de données ModSync.ninja. Veuillez réessayer plus tard.</ModSync.DatabaseError>
+	<ModSync.InvalidPatchNotes>Les notes de patch sont invalides.</ModSync.InvalidPatchNotes>
+	<ModSync.UnknownError>Il y a eu un problème pour envoyer la demande de mise à jour à ModSync.ninja.</ModSync.UnknownError>
+	
+	<!-- Connection Stats -->
+	<ModSync.YouAreOffline>Vous n'êtes pas en ligne</ModSync.YouAreOffline>
+	<ModSync.CantConnectToModSync>Impossible de se connecter au serveur ModSync, veuillez réessayer plus tard.</ModSync.CantConnectToModSync>
+	<ModSync.UnknwonError>Quelque chose a mal tourné :( \nPassez la souris sur ce message pour en savoir plus.</ModSync.UnknwonError>
+	<ModSync.PleaseWait>Une seconde SVP, je turbine!</ModSync.PleaseWait>
+	<ModSync.Synced>Connecté &amp; Synchronisé!</ModSync.Synced>
+	
+	<!-- Mod-specific sync messages -->
+	<!-- {mod_name} will be replaced with the mod's name -->
+	<ModSync.UnknownVersion>{mod_name} n'avait aucune indication de version avant de rejoindre ModSync.ninja. \nDu coup, nous ne pouvons pas être sûrs de votre version actuelle de {mod_name} \net nous avons besoin que vous vérifiiez manuellement pour la première mise à jour. \n\n</ModSync.UnknownVersion>
+	<ModSync.NotSupportedByModSync>Dommage! {mod_name} n'est pas compatible avec ModSync Ninja: (\nPeut-être que vous pourriez leur demander de s'inscrire? \n\n</ModSync.NotSupportedByModSync>
+</LanguageData>

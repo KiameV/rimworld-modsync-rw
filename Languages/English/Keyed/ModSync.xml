@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<ModSync>ModSync</ModSync>
+	
+	<!-- ModSync Window -->
+	<ModSync.UpdateMods>Update Mods</ModSync.UpdateMods>
+	<ModSync.ShowingActiveMods>Showing Active non-Steam Mods</ModSync.ShowingActiveMods>
+	<ModSync.Update>Update</ModSync.Update>
+	<ModSync.NAModSync>N/A on ModSync</ModSync.NAModSync>
+	
+	<ModSync.ModName>Mod Name</ModSync.ModName>
+	<ModSync.LocalVersion>Local Version</ModSync.LocalVersion>
+	<ModSync.AvailableVersion>Available Version</ModSync.AvailableVersion>
+	<ModSync.GetUpdate>Get Update</ModSync.GetUpdate>
+	<ModSync.ModNotBreakingSave>The mod author has stated this update will not breaking existing save games.</ModSync.ModNotBreakingSave>
+	
+	<!-- Mod Window -->
+	<ModSync.CreateModSyncFile>Create ModSync File</ModSync.CreateModSyncFile>
+	<ModSync.UpdateModSyncFile>Update ModSync File</ModSync.UpdateModSyncFile>
+	<!-- Top right text in the Mod window. {version} will be replaced by the mod's version -->
+	<ModSync.ModSyncVersion>ModSync version: {version}</ModSync.ModSyncVersion>
+	
+	<!-- Mod Update Window -->
+	<ModSync.UpdateOnModSyncNinja>ModSync File</ModSync.UpdateOnModSyncNinja>
+	<ModSync.InvalidSecurityKey>Invalid Security Key for {mod_name}</ModSync.InvalidSecurityKey>
+	<!-- {previous_version} will be replaced with the mod's version that is stored in ModSync.ninja's database -->
+	<ModSync.PreviousVersion>Previous Version: {previous_version}</ModSync.PreviousVersion>
+	<ModSync.NewVersion>New Version</ModSync.NewVersion>
+	<ModSync.QuickCopy>Quick Copy</ModSync.QuickCopy>
+	<ModSync.SecurityKey>Security Key</ModSync.SecurityKey>
+	<ModSync.PatchNotes>Patch Notes (optional)</ModSync.PatchNotes>
+	<ModSync.BugFix>Bug Fix</ModSync.BugFix>
+	<ModSync.FeatureAdded>Feature Added</ModSync.FeatureAdded>
+	<ModSync.LanguageUpdate>Language Update</ModSync.LanguageUpdate>
+	<ModSync.IsSaveBreaking>Is Save Breaking</ModSync.IsSaveBreaking>
+	<ModSync.Host>Host</ModSync.Host>
+	
+	<!-- Github -->
+	<ModSync.Owner>Owner</ModSync.Owner>
+	<ModSync.Project>Project</ModSync.Project>
+	<ModSync.DownloadPage>Download Page</ModSync.DownloadPage>
+	<ModSync.Branch>Branch</ModSync.Branch>
+	<ModSyncMainPage>Main Page</ModSyncMainPage>
+	<ModSyncReleases>Releases</ModSyncReleases>
+	
+	<!-- Error Messages -->
+	<ModSync.OldVersion>The version is less than the current version in the ModSync.ninja database.</ModSync.OldVersion>
+	<ModSync.NotFound>Unable to find this mod.</ModSync.NotFound>
+	<ModSync.InvalidKey>Invalid security key.</ModSync.InvalidKey>
+	<ModSync.NoVersion>No version given.</ModSync.NoVersion>
+	<ModSync.DeletedMod>This mod was deleted.</ModSync.DeletedMod>
+	<ModSync.UnverifiedMod>This mod have not been verified.</ModSync.UnverifiedMod>
+	<ModSync.DatabaseError>There was a problem with the ModSync.ninja database. Please try again later.</ModSync.DatabaseError>
+	<ModSync.InvalidPatchNotes>The patch notes are invalid.</ModSync.InvalidPatchNotes>
+	<ModSync.UnknownError>There was a problem sending the update request to ModSync.ninja.</ModSync.UnknownError>
+	
+	<!-- Connection Stats -->
+	<ModSync.YouAreOffline>You are offline</ModSync.YouAreOffline>
+	<ModSync.CantConnectToModSync>Unable to connect to ModSync server, please try again later</ModSync.CantConnectToModSync>
+	<ModSync.UnknwonError>Something went wrong :( \n Mouse over this message to learn more.</ModSync.UnknwonError>
+	<ModSync.PleaseWait>One sec, I'm working</ModSync.PleaseWait>
+	<ModSync.Synced>Connected &amp; Synced!</ModSync.Synced>
+	
+	<!-- Mod-specific sync messages -->
+	<!-- {mod_name} will be replaced with the mod's name -->
+	<ModSync.UnknownVersion>{mod_name} had no version indication before joining ModSync.\nBecause of that, we cannot be sure what your current {mod_name} version is \nand we need you to check manually for the first update. \n\n</ModSync.UnknownVersion>
+	<ModSync.NotSupportedByModSync>Bummer! {mod_name} is not supporting ModSync Ninja :(\nMaybe ask them to join? \n\n</ModSync.NotSupportedByModSync>
+</LanguageData>

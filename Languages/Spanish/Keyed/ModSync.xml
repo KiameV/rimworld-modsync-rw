@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<ModSync>ModSync</ModSync>
+	
+	<!-- ModSync Window -->
+	<ModSync.UpdateMods>Actualizar Mods</ModSync.UpdateMods>
+	<ModSync.ShowingActiveMods>Mostrando mods no-Steam activos</ModSync.ShowingActiveMods>
+	<ModSync.Update>Actualizar</ModSync.Update>
+	<ModSync.NAModSync>N/D en ModSync</ModSync.NAModSync>
+	
+	<ModSync.ModName>Nombre del Mod</ModSync.ModName>
+	<ModSync.LocalVersion>Version Local</ModSync.LocalVersion>
+	<ModSync.AvailableVersion>Version Disponible</ModSync.AvailableVersion>
+	<ModSync.GetUpdate>Actualizarlo</ModSync.GetUpdate>
+	<ModSync.ModNotBreakingSave>El autor del mod ha dejado claro que esta actualizacion es segura para partidas guardadas.</ModSync.ModNotBreakingSave>
+	
+	<!-- Mod Window -->
+	<ModSync.UpdateOnModSync>Actualizar en ModSync.ninja</ModSync.UpdateOnModSync>
+	<ModSync.UploadToModSync>Subir a Modsync.ninja</ModSync.UploadToModSync>
+	<!-- Top right text in the Mod window. {version} will be replaced by the mod's version -->
+	<ModSync.ModSyncVersion>Version de ModSync: {version}</ModSync.ModSyncVersion>
+	
+	<!-- Mod Update Window -->
+	<ModSync.UpdateOnModSyncNinja>Actualizar en ModSync.ninja</ModSync.UpdateOnModSyncNinja>
+	<ModSync.InvalidSecurityKey>Clave de seguridad inválida para {mod_name}</ModSync.InvalidSecurityKey>
+	<!-- {previous_version} will be replaced with the mod's version that is stored in ModSync.ninja's database -->
+	<ModSync.PreviousVersion>Version Anterior: {previous_version}</ModSync.PreviousVersion>
+	<ModSync.NewVersion>Nueva Version</ModSync.NewVersion>
+	<ModSync.QuickCopy>Copia Rápida</ModSync.QuickCopy>
+	<ModSync.SecurityKey>Clave de Seguridad</ModSync.SecurityKey>
+	<ModSync.PatchNotes>Notas de versión (Opcional)</ModSync.PatchNotes>
+	<ModSync.BugFix>Bug Fix</ModSync.BugFix>
+	<ModSync.FeatureAdded>Cosas Nuevas</ModSync.FeatureAdded>
+	<ModSync.LanguageUpdate>Actualizacin de Idiomas</ModSync.LanguageUpdate>
+	<ModSync.IsSaveBreaking>Rompe partidas guardadas</ModSync.IsSaveBreaking>
+	
+	<!-- Error Messages -->
+	<ModSync.OldVersion>La version es menor que la version actual en la Base de datos de ModSync.Ninja.</ModSync.OldVersion>
+	<ModSync.NotFound>No puedo encontrar este mod.</ModSync.NotFound>
+	<ModSync.InvalidKey>Clave inválida.</ModSync.InvalidKey>
+	<ModSync.NoVersion>No hay version.</ModSync.NoVersion>
+	<ModSync.DeletedMod>Este mod fue eliminado.</ModSync.DeletedMod>
+	<ModSync.UnverifiedMod>Este mod no está verificado.</ModSync.UnverifiedMod>
+	<ModSync.DatabaseError>Ha habido un problema con la Base de Datos de ModSync.Ninja. Por favor intenta mas tarde.</ModSync.DatabaseError>
+	<ModSync.InvalidPatchNotes>Las notas de version no son válidas.</ModSync.InvalidPatchNotes>
+	<ModSync.UnknownError>Hubo en error desconocido al enviar la actualización a ModSync.ninja.</ModSync.UnknownError>
+	
+	<!-- Connection Stats -->
+	<ModSync.YouAreOffline>Estás desconectado.</ModSync.YouAreOffline>
+	<ModSync.CantConnectToModSync>No se puede conectar al servidor de ModSync, intenta mas tarde</ModSync.CantConnectToModSync>
+	<ModSync.UnknwonError>Algo fue para atrás... :( Coloca el mouse sobre este mensaje para saber mas.</ModSync.UnknwonError>
+	<ModSync.PleaseWait>Un segundo, estoy trabajando</ModSync.PleaseWait>
+	<ModSync.Synced>Conectado &amp; Sync!</ModSync.Synced>
+	
+	<!-- Mod-specific sync messages -->
+	<!-- {mod_name} will be replaced with the mod's name -->
+	<ModSync.UnknownVersion>{mod_name} No tenia version antes de unirse a ModSync.\nPor ello, no estamos seguros que version de {mod_name} es \n Tendrás que revisar manualmente la primera vez. \n\n</ModSync.UnknownVersion>
+	<ModSync.NotSupportedByModSync>Lástima! {mod_name} no está en ModSync :(\n Quizás si les pides bien? \n\n</ModSync.NotSupportedByModSync>
+</LanguageData>
