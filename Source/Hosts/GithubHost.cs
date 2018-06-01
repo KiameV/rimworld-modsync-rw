@@ -52,6 +52,9 @@ namespace ModSyncRW.Hosts
 
         public HostEnum Type => HostEnum.Github;
 
+        public string AboutXmlUri =>
+            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/About/About.xml";
+
         public string ModSyncXmlUri => 
             "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/About/ModSync.xml";
 

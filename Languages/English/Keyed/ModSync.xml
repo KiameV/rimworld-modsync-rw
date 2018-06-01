@@ -34,6 +34,7 @@
 	<ModSync.LanguageUpdate>Language Update</ModSync.LanguageUpdate>
 	<ModSync.IsSaveBreaking>Is Save Breaking</ModSync.IsSaveBreaking>
 	<ModSync.Host>Host</ModSync.Host>
+	<ModSync.Validate>Validate</ModSync.Validate>
 	
 	<!-- Github -->
 	<ModSync.Owner>Owner</ModSync.Owner>
@@ -53,6 +54,7 @@
 	<ModSync.DatabaseError>There was a problem with the ModSync.ninja database. Please try again later.</ModSync.DatabaseError>
 	<ModSync.InvalidPatchNotes>The patch notes are invalid.</ModSync.InvalidPatchNotes>
 	<ModSync.UnknownError>There was a problem sending the update request to ModSync.ninja.</ModSync.UnknownError>
+	<ModSync.UnableToAboutSyncFile>Unable to find About.xml file from host.</ModSync.UnableToAboutSyncFile>
 	
 	<!-- Connection Stats -->
 	<ModSync.YouAreOffline>You are offline</ModSync.YouAreOffline>

@@ -35,6 +35,26 @@ namespace ModSyncRW
             t.Start();
         }
 
+        public static void GetAboutXml(string uri, IsConnectedCallback callback)
+        {
+            Thread t = new Thread(() =>
+            {
+                try
+                {
+                    WebRequest request = WebRequest.Create(uri);
+                    HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                    callback(response != null && (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Accepted));
+                }
+                catch (Exception e)
+                {
+                    Log.Warning("Failed to find About.xml in host: " + e.GetType().Name + " " + e.Message);
+                    callback(false);
+                }
+            });
+            t.IsBackground = true;
+            t.Start();
+        }
+
         public static void GetModSyncXml(string uri, RequestCallback callback)
         {
             Thread t = new Thread(() =>

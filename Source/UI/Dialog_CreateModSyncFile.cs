@@ -17,6 +17,8 @@ namespace ModSyncRW.UI
         private readonly List<string> Hosts = new List<string>();
         private string selectedHost = "";
 
+        private bool isHostValid = false;
+
         public Dialog_CreateModSyncFile(ModToSync mod, string assemblyVersion)
         {
             this.Mod = mod;
@@ -30,6 +32,7 @@ namespace ModSyncRW.UI
             if (mod.Host != null)
             {
                 this.selectedHost = mod.Host.Type.ToString();
+                this.isHostValid = true;
             }
 
             closeOnClickedOutside = false;
@@ -101,11 +104,25 @@ namespace ModSyncRW.UI
             if (this.Mod.Host != null)
             {
                 y = this.Mod.Host.DrawHost(LEFT + 20, y, lineLength);
+                if (Widgets.ButtonText(new Rect(LEFT + 20, y, 100, 32), "ModSync.Validate".Translate()))
+                {
+                    RestUtil.GetAboutXml(this.Mod.Host.AboutXmlUri, delegate(bool found)
+                    {
+                        if (found)
+                        {
+                            this.isHostValid = true;
+                        }
+                        else
+                        {
+                            Log.Error("ModSync.UnableToAboutSyncFile".Translate());
+                        }
+                    });
+                }
             }
             y += 40;
 
             // Submit button
-            bool canSubmit = !String.IsNullOrEmpty(this.Mod.LocalInfo.Version) && this.Mod.Host != null;
+            bool canSubmit = !String.IsNullOrEmpty(this.Mod.LocalInfo.Version) && this.Mod.Host != null && this.isHostValid;
             if (Widgets.ButtonText(new Rect(LEFT + buttonBuffer, y, 65, 32), "Confirm".Translate(), canSubmit, false, canSubmit)) // Using Confirm as it's translated already in the base game
             {
                 XmlDocument xml = new XmlDocument();
