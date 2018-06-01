@@ -106,14 +106,17 @@ namespace ModSyncRW.UI
                 y = this.Mod.Host.DrawHost(LEFT + 20, y, lineLength);
                 if (Widgets.ButtonText(new Rect(LEFT + 20, y, 100, 32), "ModSync.Validate".Translate()))
                 {
+                    // Going to allow user to always create ModSync file even if validation fails
+                    this.isHostValid = true;
                     RestUtil.GetAboutXml(this.Mod.Host.AboutXmlUri, delegate(bool found)
                     {
                         if (found)
                         {
-                            this.isHostValid = true;
+                            ;// this.isHostValid = true;
                         }
                         else
                         {
+                            Log.Warning(this.Mod.Host.AboutXmlUri);
                             Log.Error("ModSync.UnableToAboutSyncFile".Translate());
                         }
                     });
