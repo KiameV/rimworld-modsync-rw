@@ -4,8 +4,10 @@ namespace ModSyncRW.Hosts
 {
     interface IHost
     {
+        HostEnum Type { get; }
         string DownloadPageUri { get; }
         string ModSyncXmlUri { get; }
-        void WriteHostInfo(XmlDocument xml, XmlNode parentNode);
+        float DrawHost(float v, float y, float lineLength);
+        void WriteToXml(XmlDocument xml, XmlElement parent);
     }
 }

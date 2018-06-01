@@ -1,6 +1,7 @@
 ﻿using ModSyncRW.Hosts;
 using System;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using Verse;
 
@@ -21,13 +22,15 @@ namespace ModSyncRW.UI
             this.Mod = mod;
             this.AssemblyVersion = assemblyVersion;
 
-            if (mod.Host != null)
+            foreach (HostEnum h in Enum.GetValues(typeof(HostEnum)))
             {
-                if (mod.Host is GithubHost)
-                    this.selectedHost = "Github";
+                this.Hosts.Add(h.ToString());
             }
 
-            this.Hosts.Add("Github");
+            if (mod.Host != null)
+            {
+                this.selectedHost = mod.Host.Type.ToString();
+            }
 
             closeOnClickedOutside = false;
         }
@@ -46,7 +49,7 @@ namespace ModSyncRW.UI
             y += 52;
 
             // Label saying "Update Mod <mod name>"
-            Widgets.Label(new Rect(LEFT, y, lineLength, 64), this.Mod.Mod.Name);
+            Widgets.Label(new Rect(LEFT, y, lineLength, 64), this.Mod.LocalInfo.ModName);
             y += 42;
 
             // Label saying "Previous version: <version>
@@ -75,7 +78,8 @@ namespace ModSyncRW.UI
             y += 42;
 
             // Is Save Breaking
-            Widgets.CheckboxLabeled(new Rect(LEFT, y, lineLength - 100, 32), "ModSync.IsSaveBreaking".Translate(), ref this.Mod.LocalInfo.IsSaveBreaking);
+            Widgets.Label(new Rect(LEFT, y, 120, 32), "ModSync.IsSaveBreaking".Translate());
+            Widgets.Checkbox(new Vector2(LEFT + 140, y + 4), ref this.Mod.LocalInfo.IsSaveBreaking);
             y += 40;
 
             // Host Selection
@@ -94,13 +98,48 @@ namespace ModSyncRW.UI
                 Find.WindowStack.Add(new FloatMenu(options));
             }
             y += 40;
-            y = this.DrawHost(LEFT + 20, y, lineLength);
+            if (this.Mod.Host != null)
+            {
+                y = this.Mod.Host.DrawHost(LEFT + 20, y, lineLength);
+            }
             y += 40;
 
             // Submit button
             bool canSubmit = !String.IsNullOrEmpty(this.Mod.LocalInfo.Version) && this.Mod.Host != null;
             if (Widgets.ButtonText(new Rect(LEFT + buttonBuffer, y, 65, 32), "Confirm".Translate(), canSubmit, false, canSubmit)) // Using Confirm as it's translated already in the base game
             {
+                XmlDocument xml = new XmlDocument();
+                xml.AppendChild(xml.CreateXmlDeclaration("1.0", "utf-8", null));
+
+                XmlElement root = xml.CreateElement("ModSyncNinjaData");
+                xml.AppendChild(root);
+
+                XmlElement el = xml.CreateElement("ID");
+                el.InnerText = this.Mod.LocalInfo.Id;
+                root.AppendChild(el);
+                
+                el = xml.CreateElement("ModName");
+                el.InnerText = this.Mod.LocalInfo.ModName;
+                root.AppendChild(el);
+
+                el = xml.CreateElement("Version");
+                el.InnerText = this.Mod.LocalInfo.Version;
+                root.AppendChild(el);
+
+                el = xml.CreateElement("SaveBreaking");
+                el.InnerText = this.Mod.LocalInfo.IsSaveBreaking.ToString();
+                root.AppendChild(el);
+
+                this.WriteToXml(xml, root);
+                
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.NewLineChars = "\n";
+                settings.Indent = true;
+                using (XmlWriter writer = XmlWriter.Create(this.Mod.Mod.RootDir + "/About/ModSync.xml", settings))
+                {
+                    xml.WriteTo(writer);
+                }
+
                 base.Close();
             }
             // Cancel Button
@@ -110,39 +149,18 @@ namespace ModSyncRW.UI
             }
         }
 
-        private float DrawHost(float xMin, float y, float width)
+        private void WriteToXml(XmlDocument xml, XmlElement parent)
         {
-            if ("Github".Equals(this.selectedHost))
+            if (this.Mod.Host != null)
             {
-                GithubHost host = this.Mod.Host as GithubHost;
-                Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.Owner".Translate());
-                host.Owner = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), host.Owner);
-                y += 40;
+                XmlElement hostEl = xml.CreateElement("Host");
+                XmlAttribute at = xml.CreateAttribute("name");
+                at.Value = this.selectedHost;
+                hostEl.Attributes.Append(at);
+                parent.AppendChild(hostEl);
 
-                Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.Project".Translate());
-                host.Project = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), host.Project);
-                y += 40;
-
-                Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.DownloadPage".Translate());
-                if (Widgets.ButtonText(new Rect(xMin + 110, y, 100, 32), host.DownloadLocation.ToString().Translate()))
-                {
-                    List<FloatMenuOption> options = new List<FloatMenuOption>();
-                    foreach(DownloadLocation dl in Enum.GetValues(typeof(DownloadLocation)))
-                    {
-                        options.Add(new FloatMenuOption(dl.ToString().Translate(), delegate ()
-                        {
-                            host.DownloadLocation = dl;
-                        }));
-                    }
-                    Find.WindowStack.Add(new FloatMenu(options));
-                }
-                y += 40;
-
-                Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.Branch".Translate());
-                host.Branch = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), host.Branch);
-                y += 40;
+                this.Mod.Host.WriteToXml(xml, hostEl);
             }
-            return y;
         }
 
         private string GetNextVersion(string version)
