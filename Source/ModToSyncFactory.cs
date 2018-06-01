@@ -102,19 +102,25 @@ namespace ModSyncRW
 
         private static IHost CreateHost(string modName, XmlNode parentNode)
         {
+            IHost host = null;
             XmlAttribute nameAttr = parentNode.Attributes["name"];
             if (nameAttr != null)
             {
                 if (HostEnum.Github.ToString().Equals(nameAttr.Value))
                 {
-                    return new GithubHost(parentNode);
+                    host = new GithubHost();
                 }
                 else
                 {
                     Log.Warning("ModSyncRW: Unknown host [" + nameAttr.Value + "] for mod [" + modName + "]");
                 }
+
+                if (host != null)
+                {
+                    host.LoadFromXml(parentNode);
+                }
             }
-            return null;
+            return host;
         }
 
         private static bool TryGetModSyncNode(XmlDocument xml, out XmlNode node)

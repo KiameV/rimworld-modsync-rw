@@ -167,7 +167,7 @@ namespace ModSyncRW.UI
 
             Rect rect4 = new Rect(0f, 40f + pushY, outRect.width - 30f, outRect.height - 110f - 60f - pushY);
             Rect safeUpdatesRect = new Rect(15f + 28f, rect4.height + rect4.y + 15f, rect4.width - 100f, 80f);
-            GUI.DrawTexture(new Rect(15f, rect4.height + rect4.y + 15f, 24f, 24f), (Texture)Widgets.CheckboxOnTex);
+            GUI.DrawTexture(new Rect(15f, rect4.height + rect4.y + 15f, 24f, 24f), Widgets.CheckboxOnTex);
             Widgets.Label(safeUpdatesRect, " - " + "ModSync.ModNotBreakingSave".Translate());
             Widgets.DrawMenuSection(rect4);
 
@@ -309,7 +309,6 @@ namespace ModSyncRW.UI
                 num -= 24f;
             }
             Text.Font = GameFont.Small;
-            Texture2D texture2D = Widgets.CheckboxPartialTex;//!active ? Widgets.CheckboxOffTex : Widgets.CheckboxOnTex;
 
             // Label
             Widgets.Label(new Rect(LABEL_X, rowRect.y, 250, 24), mod.TruncatedName);
@@ -341,6 +340,8 @@ namespace ModSyncRW.UI
                     // draw download if needed
                     if (!mod.IsInSync)
                     {
+                        // not a save breaking mod
+                        GUI.DrawTexture(new Rect(rowRect.xMax - 140f - 28f, rowRect.y + 4, 24f, 24f), (Texture2D)((mod.RemoteInfo.IsSaveBreaking) ? Widgets.CheckboxOffTex : Widgets.CheckboxOnTex));
                         if (Widgets.ButtonText(new Rect(rowRect.xMax - 140f, rowRect.y, 140f, 24f), "ModSync.Update".Translate(), true, false, true))
                         {
                             Application.OpenURL(mod.Host.DownloadPageUri);

@@ -5,10 +5,22 @@
 	<targetVersion>0.18.0</targetVersion>
 	<url></url>
 	<description>
-	Translators:
+Find out when there are newer versions of a non-steam game available.
+	
+Requires the mod's author to create a ModSync file and update the version number as new versions are released.
+	
+Mod Authors: Instructions to create a ModSync file
+	-Enable Dev Mode
+	-Go to the Mods page
+	-Select your mod
+	-On the right side there will be a new button "Create ModSync File"
+	-Fill out the information on the new window
+	-Confirm will be enabled once the Host information is complete and the "Validate" button has been clicked and the About.xml was successfully found.
+	
+Translators:
 	-frenchiveruti - Spanish
 	-kaptain-kavern - French
 	
-	Original Idea was from ModSync.ninja by historic and z_jasmi
+Original Idea was from ModSync.ninja by historic and z_jasmi
 	</description>
 </ModMetaData>

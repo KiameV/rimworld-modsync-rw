@@ -17,39 +17,6 @@ namespace ModSyncRW.Hosts
         
         public GithubHost() { }
 
-        public GithubHost(XmlNode parentNode)
-        {
-            foreach (XmlElement el in parentNode.ChildNodes)
-            {
-                switch (el.Name)
-                {
-                    case "Owner":
-                        this.Owner = el.InnerText;
-                        break;
-                    case "Project":
-                        this.Project = el.InnerText;
-                        break;
-                    case "DownloadFrom":
-                        try
-                        {
-                            this.DownloadLocation = (DownloadLocation)Enum.Parse(typeof(DownloadLocation), el.InnerText);
-                        }
-                        catch
-                        {
-                            this.DownloadLocation = DownloadLocation.ModSyncMainPage;
-                        }
-                        break;
-                    case "Branch":
-                        this.Branch = el.InnerText;
-                        break;
-                }
-            }
-            if (String.IsNullOrEmpty(this.Branch))
-            {
-                this.Branch = null;
-            }
-        }
-
         public HostEnum Type => HostEnum.Github;
 
         public string AboutXmlUri =>
@@ -100,6 +67,39 @@ namespace ModSyncRW.Hosts
             this.Branch = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Branch);
             y += 40;
             return y;
+        }
+
+        public void LoadFromXml(XmlNode parentNode)
+        {
+            foreach (XmlElement el in parentNode.ChildNodes)
+            {
+                switch (el.Name)
+                {
+                    case "Owner":
+                        this.Owner = el.InnerText;
+                        break;
+                    case "Project":
+                        this.Project = el.InnerText;
+                        break;
+                    case "DownloadFrom":
+                        try
+                        {
+                            this.DownloadLocation = (DownloadLocation)Enum.Parse(typeof(DownloadLocation), el.InnerText);
+                        }
+                        catch
+                        {
+                            this.DownloadLocation = DownloadLocation.ModSyncMainPage;
+                        }
+                        break;
+                    case "Branch":
+                        this.Branch = el.InnerText;
+                        break;
+                }
+            }
+            if (String.IsNullOrEmpty(this.Branch))
+            {
+                this.Branch = null;
+            }
         }
 
         public void WriteToXml(XmlDocument xml, XmlElement parent)
