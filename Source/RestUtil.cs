@@ -27,7 +27,7 @@ namespace ModSyncRW
                 }
                 catch (Exception e)
                 {
-                    Log.Error("ModSyncRW: Error connecting to internet: " + e.GetType().Name + " " + e.Message);
+                    Log.Warning("ModSyncRW: Error connecting to internet: " + e.GetType().Name + " " + e.Message);
                     callback(false);
                 }
             });
@@ -48,7 +48,7 @@ namespace ModSyncRW
                 }
                 catch (Exception e)
                 {
-                    Log.Error("Failed to load xml remotely from " + uri + ". " + e.GetType() + " " + e.Message);
+                    Log.Warning("Failed to load xml remotely from " + uri + ". " + e.GetType() + " " + e.Message);
                     callback(null);
                 }
             });
