@@ -17,6 +17,7 @@ namespace ModSyncRW
         const int TIMEOUT_TIME = 5000;
         public static void CheckForInternetConnectionAsync(IsConnectedCallback callback)
         {
+            Initialize();
             Thread t = new Thread(() =>
             {
                 try
@@ -37,6 +38,7 @@ namespace ModSyncRW
 
         public static void GetAboutXml(string uri, IsConnectedCallback callback)
         {
+            Initialize();
             Thread t = new Thread(() =>
             {
                 try
@@ -47,7 +49,7 @@ namespace ModSyncRW
                 }
                 catch (Exception e)
                 {
-                    Log.Warning("Failed to find About.xml in host: " + e.GetType().Name + " " + e.Message);
+                    Log.Warning("Failed to find About.xml in host: [" + e.GetType().Name + "]\n" + e.GetType() + " " + e.Message);
                     callback(false);
                 }
             });
@@ -57,18 +59,18 @@ namespace ModSyncRW
 
         public static void GetModSyncXml(string uri, RequestCallback callback)
         {
+            Initialize();
             Thread t = new Thread(() =>
             {
                 try
                 {
-                    ServicePointManager.ServerCertificateValidationCallback = MyRemoteCertificateValidationCallback;
                     XmlDocument xml = new XmlDocument();
                     xml.Load(uri);
                     callback(xml);
                 }
                 catch (Exception e)
                 {
-                    Log.Warning("Failed to load xml remotely from " + uri + ". " + e.GetType() + " " + e.Message);
+                    Log.Warning("Failed to load xml remotely from [" + uri + "]\n" + e.GetType() + " " + e.Message);
                     callback(null);
                 }
             });
@@ -76,33 +78,14 @@ namespace ModSyncRW
             t.Start();
         }
 
-        private static bool MyRemoteCertificateValidationCallback(
-            object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        private static bool isInitialized = false;
+        private static void Initialize()
         {
-            bool isOk = true;
-            // If there are errors in the certificate chain,
-            // look at each error to determine the cause.
-            if (sslPolicyErrors != SslPolicyErrors.None)
+            if (!isInitialized)
             {
-                for (int i = 0; i < chain.ChainStatus.Length; i++)
-                {
-                    if (chain.ChainStatus[i].Status == X509ChainStatusFlags.RevocationStatusUnknown)
-                    {
-                        continue;
-                    }
-                    chain.ChainPolicy.RevocationFlag = X509RevocationFlag.EntireChain;
-                    chain.ChainPolicy.RevocationMode = X509RevocationMode.Online;
-                    chain.ChainPolicy.UrlRetrievalTimeout = new TimeSpan(0, 1, 0);
-                    chain.ChainPolicy.VerificationFlags = X509VerificationFlags.AllFlags;
-                    bool chainIsValid = chain.Build((X509Certificate2)certificate);
-                    if (!chainIsValid)
-                    {
-                        isOk = false;
-                        break;
-                    }
-                }
+                isInitialized = true;
+                ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
             }
-            return isOk;
         }
     }
 }

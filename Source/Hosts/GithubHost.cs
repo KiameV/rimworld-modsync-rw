@@ -38,14 +38,21 @@ namespace ModSyncRW.Hosts
             }
         }
 
+        public bool Validate()
+        {
+            return true;
+        }
+
+        public bool IsFormFilled => !string.IsNullOrEmpty(this.Owner) && !string.IsNullOrEmpty(this.Project) && !string.IsNullOrEmpty(this.Branch);
+
         public float DrawHost(float xMin, float y, float width)
         {
             Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.Owner".Translate());
-            this.Owner = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Owner);
+            this.Owner = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Owner).Trim();
             y += 40;
 
             Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.Project".Translate());
-            this.Project = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Project);
+            this.Project = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Project).Trim();
             y += 40;
 
             Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.DownloadPage".Translate());
@@ -64,7 +71,7 @@ namespace ModSyncRW.Hosts
             y += 40;
 
             Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.Branch".Translate());
-            this.Branch = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Branch);
+            this.Branch = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Branch).Trim();
             y += 40;
             return y;
         }

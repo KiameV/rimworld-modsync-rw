@@ -1,4 +1,5 @@
 ﻿using ModSyncRW.Hosts;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Xml;
@@ -32,7 +33,7 @@ namespace ModSyncRW.UI
             if (mod.Host != null)
             {
                 this.selectedHost = mod.Host.Type.ToString();
-                this.isHostValid = true;
+                this.isHostValid = false;
             }
 
             closeOnClickedOutside = false;
@@ -94,38 +95,49 @@ namespace ModSyncRW.UI
                 {
                     options.Add(new FloatMenuOption(host, delegate
                     {
-                        this.selectedHost = host;
-                        this.Mod.Host = new GithubHost();
+                        if (HostFactory.TryCreateHost(host, out this.Mod.Host))
+                        {
+                            this.selectedHost = host;
+                            this.isHostValid = false;
+                        }
                     }));
                 }
                 Find.WindowStack.Add(new FloatMenu(options));
             }
             y += 40;
+            bool canValidate = false;
             if (this.Mod.Host != null)
             {
                 y = this.Mod.Host.DrawHost(LEFT + 20, y, lineLength);
-                if (Widgets.ButtonText(new Rect(LEFT + 20, y, 100, 32), "ModSync.Validate".Translate()))
+                canValidate = this.Mod.Host.IsFormFilled;
+                if (Widgets.ButtonText(new Rect(LEFT + 20, y, 100, 32), "ModSync.Validate".Translate(), canValidate, false, canValidate))
                 {
-                    // Going to allow user to always create ModSync file even if validation fails
-                    this.isHostValid = true;
-                    RestUtil.GetAboutXml(this.Mod.Host.AboutXmlUri, delegate(bool found)
+                    if (this.Mod.Host.Validate())
                     {
-                        if (found)
+                        RestUtil.GetAboutXml(this.Mod.Host.AboutXmlUri, delegate (bool found)
                         {
-                            ;// this.isHostValid = true;
-                        }
-                        else
-                        {
-                            Log.Warning(this.Mod.Host.AboutXmlUri);
-                            Log.Error("ModSync.UnableToAboutSyncFile".Translate());
-                        }
-                    });
+                            if (found)
+                            {
+                                this.isHostValid = true;
+                                Messages.Message("ModSync.FormIsValid".Translate(), MessageTypeDefOf.PositiveEvent);
+                            }
+                            else
+                            {
+                                Log.Warning(this.Mod.Host.AboutXmlUri);
+                                Log.Error("ModSync.UnableToAboutSyncFile".Translate());
+                            }
+                        });
+                    }
                 }
             }
             y += 40;
 
             // Submit button
-            bool canSubmit = !String.IsNullOrEmpty(this.Mod.LocalInfo.Version) && this.Mod.Host != null && this.isHostValid;
+            bool canSubmit = 
+                !String.IsNullOrEmpty(this.Mod.LocalInfo.Version) && 
+                this.Mod.Host != null && 
+                canValidate && 
+                this.isHostValid;
             if (Widgets.ButtonText(new Rect(LEFT + buttonBuffer, y, 65, 32), "Confirm".Translate(), canSubmit, false, canSubmit)) // Using Confirm as it's translated already in the base game
             {
                 XmlDocument xml = new XmlDocument();
@@ -151,10 +163,12 @@ namespace ModSyncRW.UI
                 root.AppendChild(el);
 
                 this.WriteToXml(xml, root);
-                
-                XmlWriterSettings settings = new XmlWriterSettings();
-                settings.NewLineChars = "\n";
-                settings.Indent = true;
+
+                XmlWriterSettings settings = new XmlWriterSettings
+                {
+                    NewLineChars = "\n",
+                    Indent = true
+                };
                 using (XmlWriter writer = XmlWriter.Create(this.Mod.Mod.RootDir + "/About/ModSync.xml", settings))
                 {
                     xml.WriteTo(writer);

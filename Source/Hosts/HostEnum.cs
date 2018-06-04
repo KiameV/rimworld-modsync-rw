@@ -2,6 +2,7 @@
 {
     enum HostEnum
     {
+        Direct,
         Github
     }
 }

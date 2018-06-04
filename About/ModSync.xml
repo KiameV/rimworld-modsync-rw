@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>54d45889-835c-48c3-9817-5b27f089688d</ID>
   <ModName>ModSync RW</ModName>
-  <Version>0.18.0.2</Version>
+  <Version>0.18.0.3</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>KiameV</Owner>

@@ -23,6 +23,16 @@ namespace ModSyncRW.Hosts
         /// </summary>
         string ModSyncXmlUri { get; }
         /// <summary>
+        /// True if all required fields in the form are filled in. False otherwise.
+        /// Do not create Log messages in this method.
+        /// </summary>
+        bool IsFormFilled { get; }
+        /// <summary>
+        /// Validate the inputs. Log messages can be created here. This will happen after IsFormFilled.
+        /// </summary>
+        /// <returns>True if the form is valid. False otherwise.</returns>
+        bool Validate();
+        /// <summary>
         /// Draw the entry fields the user will need to fill out for the ModSync lookup to work
         /// </summary>
         /// <param name="xMin">Left-most x position any field should be drawn from</param>

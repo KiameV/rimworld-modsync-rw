@@ -36,6 +36,11 @@
 	<ModSync.Host>Host</ModSync.Host>
 	<ModSync.Validate>Validate</ModSync.Validate>
 	
+	<!-- Direct -->
+	<ModSync.AboutUri>About Uri</ModSync.AboutUri>
+	<ModSync.ModSyncUri>ModSync Uri</ModSync.ModSyncUri>
+	<ModSync.DownloadUri>Download Uri</ModSync.DownloadUri>
+	
 	<!-- Github -->
 	<ModSync.Owner>Owner</ModSync.Owner>
 	<ModSync.Project>Project</ModSync.Project>
@@ -43,6 +48,9 @@
 	<ModSync.Branch>Branch</ModSync.Branch>
 	<ModSyncMainPage>Main Page</ModSyncMainPage>
 	<ModSyncReleases>Releases</ModSyncReleases>
+	
+	<!-- General Messages -->
+	<ModSync.FormIsValid>Form Is Valid</ModSync.FormIsValid>
 	
 	<!-- Error Messages -->
 	<ModSync.OldVersion>The version is less than the current version in the ModSync.ninja database.</ModSync.OldVersion>

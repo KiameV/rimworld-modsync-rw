@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileUtil.cs" />
+    <Compile Include="Hosts\HostFactory.cs" />
     <Compile Include="Hosts\GithubHost.cs" />
+    <Compile Include="Hosts\DirectHost.cs" />
     <Compile Include="Hosts\HostEnum.cs" />
     <Compile Include="Hosts\IHost.cs" />
     <Compile Include="HarmonyPatches.cs" />
