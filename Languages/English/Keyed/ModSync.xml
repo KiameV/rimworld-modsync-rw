@@ -48,6 +48,7 @@
 	<ModSync.Branch>Branch</ModSync.Branch>
 	<ModSyncMainPage>Main Page</ModSyncMainPage>
 	<ModSyncReleases>Releases</ModSyncReleases>
+	<ModSyncTags>Tags</ModSyncTags>
 	
 	<!-- General Messages -->
 	<ModSync.FormIsValid>Form Is Valid</ModSync.FormIsValid>

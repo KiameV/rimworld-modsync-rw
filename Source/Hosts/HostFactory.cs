@@ -33,6 +33,10 @@ namespace ModSyncRW.Hosts
             {
                 host = new DirectHost();
             }
+            else if (hostEnum == HostEnum.Gitlab)
+            {
+                host = new GitlabHost();
+            }
 
             return host != null;
         }

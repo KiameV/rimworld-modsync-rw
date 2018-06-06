@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileUtil.cs" />
+    <Compile Include="Hosts\GitlabHost.cs" />
     <Compile Include="Hosts\HostFactory.cs" />
     <Compile Include="Hosts\GithubHost.cs" />
     <Compile Include="Hosts\DirectHost.cs" />

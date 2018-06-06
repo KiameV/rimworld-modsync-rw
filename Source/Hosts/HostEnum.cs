@@ -3,6 +3,7 @@
     enum HostEnum
     {
         Direct,
-        Github
+        Github,
+        Gitlab
     }
 }

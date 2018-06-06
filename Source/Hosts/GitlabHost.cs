@@ -6,33 +6,33 @@ using Verse;
 
 namespace ModSyncRW.Hosts
 {
-    class GithubHost : IHost
+    class GitlabHost : IHost
     {
-        public enum DownloadLocationEnum { ModSyncMainPage, ModSyncReleases }
+        public enum DownloadLocationEnum { ModSyncMainPage, ModSyncTags }
 
         public string Owner;
         public string Project;
         public DownloadLocationEnum DownloadLocation = DownloadLocationEnum.ModSyncMainPage;
         public string Branch = "master";
         
-        public GithubHost() { }
+        public GitlabHost() { }
 
-        public HostEnum Type => HostEnum.Github;
+        public HostEnum Type => HostEnum.Gitlab;
 
         public string AboutXmlUri =>
-            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/About/About.xml";
+            "https://gitlab.com/" + this.Owner + "/" + this.Project + "/raw/" + this.Branch + "/About/About.xml";
 
-        public string ModSyncXmlUri => 
-            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/About/ModSync.xml";
+        public string ModSyncXmlUri =>
+            "https://gitlab.com/" + this.Owner + "/" + this.Project + "/raw/" + this.Branch + "/About/ModSync.xml";
 
         public string DownloadPageUri
         {
             get
             {
-                string url = "https://github.com/" + this.Owner + "/" + this.Project + "/";
-                if (this.DownloadLocation == DownloadLocationEnum.ModSyncReleases)
+                string url = "https://gitlab.com/" + this.Owner + "/" + this.Project + "/";
+                if (this.DownloadLocation == DownloadLocationEnum.ModSyncTags)
                 {
-                    url += "releases/";
+                    url += "tags/";
                 }
                 return url;
             }
