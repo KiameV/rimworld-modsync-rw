@@ -183,7 +183,6 @@ namespace ModSyncRW.UI
 
             // reset UI settings
             Text.Anchor = TextAnchor.UpperLeft;
-            GUI.EndGroup();
             GUI.color = Color.white;
         }
 
