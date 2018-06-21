@@ -121,18 +121,37 @@ namespace ModSyncRW.UI
                         Log.Message("ModCheck Callback: " + mod.Mod.Name);
 #endif
                         mod.RequestDone = true;
-                        if (xml != null)
+                        if (mod.Host is HugsLibVersionHost)
                         {
-                            try
+                            if (xml != null)
                             {
-                                ModSyncInfo info;
-                                IHost host;
-                                if (ModToSyncFactory.ReadModSync(xml, mod.Mod.Name, out info, out host))
+                                try
                                 {
-                                    mod.RemoteInfo = info;
+                                    ModSyncInfo info;
+                                    IHost host;
+                                    if (ModToSyncFactory.ReadVersion(xml, mod.Mod.Name, out info, out host))
+                                    {
+                                        mod.RemoteInfo = info;
+                                    }
                                 }
+                                catch { }
                             }
-                            catch { }
+                        }
+                        else
+                        {
+                            if (xml != null)
+                            {
+                                try
+                                {
+                                    ModSyncInfo info;
+                                    IHost host;
+                                    if (ModToSyncFactory.ReadModSync(xml, mod.Mod.Name, out info, out host))
+                                    {
+                                        mod.RemoteInfo = info;
+                                    }
+                                }
+                                catch { }
+                            }
                         }
                     });
                 }
