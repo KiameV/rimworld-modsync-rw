@@ -46,6 +46,7 @@
 	<ModSync.Project>Project</ModSync.Project>
 	<ModSync.DownloadPage>Download Page</ModSync.DownloadPage>
 	<ModSync.Branch>Branch</ModSync.Branch>
+	<ModSync.AboutDir>About Dir</ModSync.AboutDir>
 	<ModSyncMainPage>Main Page</ModSyncMainPage>
 	<ModSyncReleases>Releases</ModSyncReleases>
 	<ModSyncTags>Tags</ModSyncTags>

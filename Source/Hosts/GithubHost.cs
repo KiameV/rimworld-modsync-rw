@@ -8,22 +8,26 @@ namespace ModSyncRW.Hosts
 {
     class GithubHost : IHost
     {
+        private const string ABOUT_DIR = "About";
+        private const string MASTER_BRANCH = "master";
+
         public enum DownloadLocationEnum { ModSyncMainPage, ModSyncReleases }
 
         public string Owner;
         public string Project;
+        public string AboutDir = ABOUT_DIR;
         public DownloadLocationEnum DownloadLocation = DownloadLocationEnum.ModSyncMainPage;
-        public string Branch = "master";
+        public string Branch = MASTER_BRANCH;
         
         public GithubHost() { }
 
         public HostEnum Type => HostEnum.Github;
 
         public string AboutXmlUri =>
-            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/About/About.xml";
+            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/" + AboutDir + "/About.xml";
 
         public string ModSyncXmlUri => 
-            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/About/ModSync.xml";
+            "https://raw.githubusercontent.com/" + this.Owner + "/" + this.Project + "/" + this.Branch + "/" + AboutDir + "/ModSync.xml";
 
         public string DownloadPageUri
         {
@@ -55,6 +59,10 @@ namespace ModSyncRW.Hosts
             this.Project = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.Project).Trim();
             y += 40;
 
+            Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.AboutDir".Translate());
+            this.AboutDir = Widgets.TextField(new Rect(xMin + 110, y, 200, 32), this.AboutDir).Trim();
+            y += 40;
+
             Widgets.Label(new Rect(xMin, y, 100, 32), "ModSync.DownloadPage".Translate());
             if (Widgets.ButtonText(new Rect(xMin + 110, y, 100, 32), this.DownloadLocation.ToString().Translate()))
             {
@@ -78,6 +86,8 @@ namespace ModSyncRW.Hosts
 
         public void LoadFromXml(XmlNode parentNode)
         {
+            this.AboutDir = ABOUT_DIR;
+            this.Branch = MASTER_BRANCH;
             foreach (XmlElement el in parentNode.ChildNodes)
             {
                 switch (el.Name)
@@ -87,6 +97,9 @@ namespace ModSyncRW.Hosts
                         break;
                     case "Project":
                         this.Project = el.InnerText;
+                        break;
+                    case "AboutDir":
+                        this.AboutDir = el.InnerText;
                         break;
                     case "DownloadFrom":
                         try
@@ -113,6 +126,7 @@ namespace ModSyncRW.Hosts
         {
             XmlDocUtil.AddElement(xml, parent, "Owner", this.Owner);
             XmlDocUtil.AddElement(xml, parent, "Project", this.Project);
+            XmlDocUtil.AddElement(xml, parent, "AboutDir", this.AboutDir);
             XmlDocUtil.AddElement(xml, parent, "DownloadFrom", this.DownloadLocation.ToString());
             XmlDocUtil.AddElement(xml, parent, "Branch", this.Branch);
         }

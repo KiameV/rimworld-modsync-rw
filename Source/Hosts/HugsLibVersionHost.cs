@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml;
-using UnityEngine;
-using Verse;
+﻿using System.Xml;
 
 namespace ModSyncRW.Hosts
 {
@@ -16,7 +12,7 @@ namespace ModSyncRW.Hosts
         public HostEnum Type => HostEnum.Github;
 
         public string AboutXmlUri =>
-            "https://raw.githubusercontent.com/" + this.OwnerProject + this.Branch + "/Mods/HugsLib/About/About.xml";
+            "https://raw.githubusercontent.com/" + this.OwnerProject + "/" + this.Branch + "/Mods/HugsLib/About/About.xml";
 
         public string ModSyncXmlUri => 
             "https://raw.githubusercontent.com/" + this.OwnerProject + "/" + this.Branch + "/Mods/HugsLib/About/Version.xml";
