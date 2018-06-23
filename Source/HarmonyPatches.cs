@@ -27,8 +27,8 @@ namespace ModSyncRW
             if (Current.ProgramState == ProgramState.Entry)
             {
                 Text.Font = GameFont.Small;
-                int y = (int)((rect.yMax + rect.yMin) * .49f);
-                Rect r = new Rect(rect.xMax - 598, y + 2, 140, 45);
+                float y = ((rect.yMax + rect.yMin) / 2.0f) - 8.5f;
+                Rect r = new Rect(rect.xMax - 598, y, 140, 45);
                 if (Widgets.ButtonText(r, "ModSync".Translate(), true, false, true))
                 {
                     Find.WindowStack.Add((Window)new Dialog_CheckMods());
