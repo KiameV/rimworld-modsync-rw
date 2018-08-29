@@ -20,8 +20,33 @@ namespace ModSyncRW
             this.LocalInfo = localInfo;
         }
 
-        public bool IsInSync => this.RemoteInfo == null || this.LocalInfo.Version.Equals(this.RemoteInfo.Version);
+        public bool IsInSync => this.RemoteInfo == null || this.GetVersionAsInt(this.LocalInfo.Version) >= this.GetVersionAsInt(this.RemoteInfo.Version);
 
         public string TruncatedName => this.Mod.Name.Truncate(NAME_TRUNCATE_LENGTH);
+
+        private int GetVersionAsInt(string version)
+        {
+            if (System.String.IsNullOrEmpty(version))
+                return 0;
+            int result = 0;
+            for (int i = 0; i < version.Length; ++i)
+            {
+                char c = version[i];
+                if (c >= '0' && c <= '9')
+                {
+                    result = result * 10 + ((int)c - 48);
+                }
+                else if (c >= 'a' && c <= 'z')
+                {
+                    c = char.ToUpper(c);
+                    result = result * 100 + ((int)c - 65) + 20;
+                }
+                else if (c >= 'A' && c <= 'Z')
+                {
+                    result = result * 100 + ((int)c - 65) + 50;
+                }
+            }
+            return result;
+        }
     }
 }

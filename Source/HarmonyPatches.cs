@@ -28,8 +28,8 @@ namespace ModSyncRW
             {
                 Text.Font = GameFont.Small;
                 float y = ((rect.yMax + rect.yMin) / 2.0f) - 8.5f;
-                //Rect r = new Rect(rect.xMax - 598, y, 140, 45);
-                float x = Math.Max(0, rect.xMax - 915);
+                float x = Math.Max(0, rect.xMax - 598);
+                //float x = Math.Max(0, rect.xMax - 915);
                 Rect r = new Rect(x, y, 140, 45);
                 if (Widgets.ButtonText(r, "ModSync".Translate(), true, false, true))
                 {
