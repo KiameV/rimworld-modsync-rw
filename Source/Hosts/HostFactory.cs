@@ -37,6 +37,10 @@ namespace ModSyncRW.Hosts
             {
                 host = new GitlabHost();
             }
+            else if (hostEnum == HostEnum.Bitbucket)
+            {
+                host = new BitbucketHost();
+            }
 
             return host != null;
         }

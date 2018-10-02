@@ -4,6 +4,7 @@
     {
         Direct,
         Github,
-        Gitlab
+        Gitlab,
+        Bitbucket
     }
 }
