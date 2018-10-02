@@ -21,10 +21,10 @@ namespace ModSyncRW.Hosts
         public HostEnum Type => HostEnum.Bitbucket;
 
         public string AboutXmlUri =>
-            "https://bitbucket.org/" + this.Owner + "/" + this.Project + "/raw/" + this.Branch + "/" + "/" + AboutDir + "/About.xml";
+            "https://bitbucket.org/" + this.Owner + "/" + this.Project + "/raw/" + this.Branch + "/" + AboutDir + "/About.xml";
 
         public string ModSyncXmlUri =>
-            "https://bitbucket.org/" + this.Owner + "/" + this.Project + "/raw/" + this.Branch + "/" + "/" + AboutDir + "/ModSync.xml";
+            "https://bitbucket.org/" + this.Owner + "/" + this.Project + "/raw/" + this.Branch + "/" + AboutDir + "/ModSync.xml";
 
         public string DownloadPageUri
         {
