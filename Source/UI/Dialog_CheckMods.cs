@@ -208,9 +208,9 @@ namespace ModSyncRW.UI
         private void DoTopBar(Rect rect, float height)
         {
             Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(0, 0, rect.width / 2, height), "ModSync.UpdateMods".Translate().ToUpper());
+            Widgets.Label(new Rect(0, 0, rect.width / 2, height), "ModSync.UpdateMods".Translate().ToString().ToUpper());
             Text.Font = GameFont.Small;
-            Widgets.Label(new Rect(0, 30f, rect.width / 2, height - 30f), "ModSync.ShowingActiveMods".Translate().ToUpper());
+            Widgets.Label(new Rect(0, 30f, rect.width / 2, height - 30f), "ModSync.ShowingActiveMods".Translate().ToString().ToUpper());
             //CurrSyncState = CurrentSyncState.ModSyncError;
             if (this.Status == InternetConnectivity.Offline)
             {

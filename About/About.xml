@@ -2,8 +2,11 @@
 <ModMetaData>
 	<name>ModSync RW - 1.0</name>
 	<author>Kiame</author>
-	<targetVersion>1.0.0</targetVersion>
-	<url></url>
+    <supportedVersions>
+        <li>1.0</li>
+        <li>1.1</li>
+    </supportedVersions>
+	<url>https://ludeon.com/forums/index.php?topic=41634.0</url>
 	<description>
 Find out when there are newer versions of a non-steam game available.
 	
@@ -26,4 +29,5 @@ Other Thanks:
 	
 Original Idea was from ModSync.ninja by historic and z_jasmi
 	</description>
+	<packageId>modsyncrw.kv.rw</packageId>
 </ModMetaData>

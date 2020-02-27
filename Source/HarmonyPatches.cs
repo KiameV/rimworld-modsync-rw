@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using Harmony;
+using HarmonyLib;
 using UnityEngine;
 using Verse;
 using RimWorld;
@@ -14,7 +14,7 @@ namespace ModSyncRW
     {
         static Main()
         {
-            var harmony = HarmonyInstance.Create("com.modsyncninja.rimworld");
+            var harmony = new Harmony("com.modsyncninja.rimworld");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
@@ -45,7 +45,7 @@ namespace ModSyncRW
         static void Postfix(Page_ModsConfig __instance, Rect rect)
         {
             ModMetaData selectedMod = __instance.selectedMod;
-            if (Prefs.DevMode && selectedMod != null && !selectedMod.IsCoreMod && selectedMod.Source == ContentSource.LocalFolder)
+            if (Prefs.DevMode && selectedMod != null && !selectedMod.IsCoreMod && selectedMod.Source == ContentSource.ModsFolder)
             {
                 Rect buttonRect = new Rect(580f, rect.height - 95f, 200f, 40f);
 
