@@ -197,7 +197,14 @@ namespace ModSyncRW.UI
             float height = (float)(ModLister.AllInstalledMods.Count<ModMetaData>() * 34 + 300);
             DrawModsToSync(rect4, height, this.modsToSync);
 
-            AddCloseBtn(rect);
+            if (Widgets.ButtonText(new Rect((rect.xMax / 2) - 100, rect.yMax - 65f, 80f, 50f), "CloseButton".Translate(), true, false, true))
+            {
+                Find.WindowStack.TryRemove(this.GetType(), true);
+            }
+            if (Widgets.ButtonText(new Rect((rect.xMax / 2) + 100, rect.yMax - 65f, 80f, 50f), "Reset".Translate(), true, false, true))
+            {
+                GenCommandLine.Restart();
+            }
             //AddBrandLogo(rect);
 
             // reset UI settings
@@ -259,15 +266,6 @@ namespace ModSyncRW.UI
                 NetworkManager.OpenModSyncUrl();
             }
         }*/
-
-        private void AddCloseBtn(Rect rect)
-        {
-            // close btn
-            if (Widgets.ButtonText(new Rect((rect.xMax / 2) - (80 / 2f), rect.yMax - 65f, 80f, 50f), "CloseButton".Translate(), true, false, true))
-            {
-                Find.WindowStack.TryRemove(this.GetType(), true);
-            }
-        }
 
         const float LABEL_X = 0;
         const float LOCAL_VERSION_X = 250;
