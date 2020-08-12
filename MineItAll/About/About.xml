@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>MineItAll - 1.0</name>
+  <author>RShingeton (original) &amp; Kiame Vivacity</author>
+  <targetVersion>1.0.0</targetVersion>
+  <description>
+    Click on a visible ore and you will mine the whole vein.\n
+    Strip mining tool to mine a grid.\n
+    Mine brush tool (use q and e to modify brush sizing).\n
+
+    **NOTE: Requires HugsLib
+
+    -------------------------------------------\n
+    Originally based on Julia Ellie's VeinMiner MOD:\n
+    https://ludeon.com/forums/index.php?topic=9616.0 \n
+  </description>
+
+<url></url>
+
+</ModMetaData>

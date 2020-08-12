@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MineItAll.MinerDesignatorDef>
+    <defName>MineBrush</defName>
+    <!-- the class that handles the behaviour of this designator. Must extend AllowTool.Designator_SelectableThing -->
+    <designatorClass>MineItAll.Designator_MineBrush</designatorClass>
+    <!-- the category def name to add this designator to -->
+    <category>Orders</category>
+    <!-- the designator type to insert this designator after -->
+    <insertAfter>Designator_Mine</insertAfter>
+    <!-- the label on the button, optional -->
+    <label>Mine Brush Tool</label>
+    <!-- button tooltip, optional -->
+    <description>A brush for mining. Use Q and E to change size.</description>
+    <!-- the icon texture for the button -->
+    <iconTex>MineBrush</iconTex>
+    <highlightTex>CircleTex</highlightTex>
+    <!-- sound def played after a successful designation -->
+    <soundSucceeded>Tick_High</soundSucceeded>
+  </MineItAll.MinerDesignatorDef>
+
+  <MineItAll.MinerDesignatorDef>
+    <defName>StripMiner</defName>
+    <!-- the class that handles the behaviour of this designator. Must extend AllowTool.Designator_SelectableThing -->
+    <designatorClass>MineItAll.Designator_StripMiner</designatorClass>
+    <!-- the category def name to add this designator to -->
+    <category>Orders</category>
+    <!-- the designator type to insert this designator after -->
+    <insertAfter>Designator_Mine</insertAfter>
+    <!-- the label on the button, optional -->
+    <label>Strip Mining Tool</label>
+    <!-- button tooltip, optional -->
+    <description>Drag an area to strip mine. Q, E, SHIFT-Q, SHIFT-E to change spacing between strips.</description>
+    <!-- the icon texture for the button -->
+    <iconTex>StripMiner</iconTex>
+  </MineItAll.MinerDesignatorDef>
+
+  <MineItAll.MinerDesignatorDef>
+    <defName>VeinMiner</defName>
+    <!-- the class that handles the behaviour of this designator. Must extend AllowTool.Designator_SelectableThing -->
+    <designatorClass>MineItAll.Designator_VeinMiner</designatorClass>
+    <!-- the category def name to add this designator to -->
+    <category>Orders</category>
+    <!-- the designator type to insert this designator after -->
+    <insertAfter>Designator_Mine</insertAfter>
+    <!-- the label on the button, optional -->
+    <label>Vein Miner</label>
+    <!-- button tooltip, optional -->
+    <description>Click on a visible ore and you will mine the whole vein.</description>
+    <!-- the icon texture for the button -->
+    <iconTex>VeinMiner</iconTex>
+    <!-- sound def played after a successful designation -->
+    <soundSucceeded>Tick_High</soundSucceeded>
+  </MineItAll.MinerDesignatorDef>
+</Defs>

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>ModSync RW - 1.0</name>
+	<name>ModSync RW</name>
 	<author>Kiame</author>
     <supportedVersions>
         <li>1.0</li>
         <li>1.1</li>
+        <li>1.2</li>
     </supportedVersions>
 	<url>https://ludeon.com/forums/index.php?topic=41634.0</url>
 	<description>
