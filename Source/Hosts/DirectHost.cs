@@ -4,7 +4,7 @@ using Verse;
 
 namespace ModSyncRW.Hosts
 {
-    class DirectHost : IHost
+    class DirectHost : IEditableHost
     {
         public string AboutUri;
         public string ModSyncUri;

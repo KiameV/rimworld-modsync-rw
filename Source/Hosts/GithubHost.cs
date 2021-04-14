@@ -6,7 +6,7 @@ using Verse;
 
 namespace ModSyncRW.Hosts
 {
-    class GithubHost : IHost
+    class GithubHost : IEditableHost
     {
         private const string ABOUT_DIR = "About";
         private const string MASTER_BRANCH = "master";

@@ -6,7 +6,7 @@ using Verse;
 
 namespace ModSyncRW.Hosts
 {
-    class GitlabHost : IHost
+    class GitlabHost : IEditableHost
     {
         private const string ABOUT_DIR = "About";
         private const string MASTER_BRANCH = "master";

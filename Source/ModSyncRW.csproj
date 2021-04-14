@@ -84,6 +84,7 @@
     <Compile Include="Hosts\HostEnum.cs" />
     <Compile Include="Hosts\IHost.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="Hosts\ManifestHost.cs" />
     <Compile Include="ModSyncInfo.cs" />
     <Compile Include="ModToSyncFactory.cs" />
     <Compile Include="ModToSync.cs" />

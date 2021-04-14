@@ -23,6 +23,16 @@ namespace ModSyncRW.Hosts
         /// </summary>
         string ModSyncXmlUri { get; }
         /// <summary>
+        /// Load all data from the XmlNode to properly populate this Host instance
+        /// </summary>
+        /// <param name="parent">The child elements will be the fields to load from</param>
+        void LoadFromXml(XmlNode parent);
+    }
+
+    interface IEditableHost : IHost
+    {
+
+        /// <summary>
         /// True if all required fields in the form are filled in. False otherwise.
         /// Do not create Log messages in this method.
         /// </summary>
@@ -40,11 +50,6 @@ namespace ModSyncRW.Hosts
         /// <param name="width">Width of the box that can be drawn in</param>
         /// <returns>The next y from which to add the next element</returns>
         float DrawHost(float xMin, float y, float width);
-        /// <summary>
-        /// Load all data from the XmlNode to properly populate this Host instance
-        /// </summary>
-        /// <param name="parent">The child elements will be the fields to load from</param>
-        void LoadFromXml(XmlNode parent);
         /// <summary>
         /// Write the required fields into the XmlDocument
         /// </summary>

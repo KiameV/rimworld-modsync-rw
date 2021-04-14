@@ -121,36 +121,31 @@ namespace ModSyncRW.UI
                         Log.Message("ModCheck Callback: " + mod.Mod.Name);
 #endif
                         mod.RequestDone = true;
-                        if (mod.Host is HugsLibVersionHost)
+
+                        ModSyncInfo info;
+                        IHost host;
+                        if (xml != null)
                         {
-                            if (xml != null)
+                            if (mod.Host is HugsLibVersionHost)
                             {
-                                try
+                                if (ModToSyncFactory.ReadVersion(xml, mod.Mod.Name, out info, out host))
                                 {
-                                    ModSyncInfo info;
-                                    IHost host;
-                                    if (ModToSyncFactory.ReadVersion(xml, mod.Mod.Name, out info, out host))
-                                    {
-                                        mod.RemoteInfo = info;
-                                    }
+                                    mod.RemoteInfo = info;
                                 }
-                                catch { }
                             }
-                        }
-                        else
-                        {
-                            if (xml != null)
+                            else if (mod.Host is ManifestHost)
                             {
-                                try
+                                if (ModToSyncFactory.ReadManifest(xml, mod.Mod.Name, out info, out host))
                                 {
-                                    ModSyncInfo info;
-                                    IHost host;
-                                    if (ModToSyncFactory.ReadModSync(xml, mod.Mod.Name, out info, out host))
-                                    {
-                                        mod.RemoteInfo = info;
-                                    }
+                                    mod.RemoteInfo = info;
                                 }
-                                catch { }
+                            }
+                            else
+                            {
+                                if (ModToSyncFactory.ReadModSync(xml, mod.Mod.Name, out info, out host))
+                                {
+                                    mod.RemoteInfo = info;
+                                }
                             }
                         }
                     });

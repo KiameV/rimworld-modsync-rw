@@ -106,13 +106,13 @@ namespace ModSyncRW.UI
             }
             y += 40;
             bool canValidate = false;
-            if (this.Mod.Host != null)
+            if (this.Mod.Host is IEditableHost editable)
             {
-                y = this.Mod.Host.DrawHost(LEFT + 20, y, lineLength);
-                canValidate = this.Mod.Host.IsFormFilled;
+                y = editable.DrawHost(LEFT + 20, y, lineLength);
+                canValidate = editable.IsFormFilled;
                 if (Widgets.ButtonText(new Rect(LEFT + 20, y, 100, 32), "ModSync.Validate".Translate(), canValidate, false, canValidate))
                 {
-                    if (this.Mod.Host.Validate())
+                    if (editable.Validate())
                     {
                         RestUtil.GetAboutXml(this.Mod.Host.AboutXmlUri, delegate (bool found)
                         {
@@ -185,7 +185,7 @@ namespace ModSyncRW.UI
 
         private void WriteToXml(XmlDocument xml, XmlElement parent)
         {
-            if (this.Mod.Host != null)
+            if (this.Mod.Host is IEditableHost editable)
             {
                 XmlElement hostEl = xml.CreateElement("Host");
                 XmlAttribute at = xml.CreateAttribute("name");
@@ -193,7 +193,7 @@ namespace ModSyncRW.UI
                 hostEl.Attributes.Append(at);
                 parent.AppendChild(hostEl);
 
-                this.Mod.Host.WriteToXml(xml, hostEl);
+                editable.WriteToXml(xml, hostEl);
             }
         }
 

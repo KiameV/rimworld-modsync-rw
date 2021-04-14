@@ -6,7 +6,7 @@ using Verse;
 
 namespace ModSyncRW.Hosts
 {
-    class BitbucketHost : IHost
+    class BitbucketHost : IEditableHost
     {
         private const string ABOUT_DIR = "About";
         private const string MASTER_BRANCH = "master";

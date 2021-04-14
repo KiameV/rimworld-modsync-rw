@@ -18,7 +18,27 @@ namespace ModSyncRW
             ModSyncInfo info = null;
             IHost host = null;
 
-            string f = mod.RootDir + "/About/ModSync.xml";
+            string f = mod.RootDir + "/About/Manifest.xml";
+            if (File.Exists(f))
+            {
+                try
+                {
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load(f);
+
+                    if (ReadManifest(xml, mod.Name, out info, out host))
+                    {
+                        modToSync = new ModToSync(mod, info)
+                        {
+                            Host = host
+                        };
+                        return true;
+                    }
+                }
+                catch { }
+            }
+
+            f = mod.RootDir + "/About/ModSync.xml";
             if (File.Exists(f))
             {
                 try
@@ -28,8 +48,10 @@ namespace ModSyncRW
 
                     if (ReadModSync(xml, mod.Name, out info, out host))
                     {
-                        modToSync = new ModToSync(mod, info);
-                        modToSync.Host = host;
+                        modToSync = new ModToSync(mod, info)
+                        {
+                            Host = host
+                        };
                         return true;
                     }
                 }
@@ -46,8 +68,10 @@ namespace ModSyncRW
 
                     if (ReadVersion(xml, mod.Name, out info, out host))
                     {
-                        modToSync = new ModToSync(mod, info);
-                        modToSync.Host = host;
+                        modToSync = new ModToSync(mod, info)
+                        {
+                            Host = host
+                        };
                         return true;
                     }
                 }
@@ -151,8 +175,6 @@ namespace ModSyncRW
             return false;
         }
 
-
-
         public static bool ReadVersion(XmlDocument xml, string modName, out ModSyncInfo info, out IHost host)
         {
 #if MOD_TO_SYNC_FACTORY_VERSION
@@ -213,6 +235,51 @@ namespace ModSyncRW
 #if MOD_TO_SYNC_FACTORY_VERSION
             Log.Warning("End ModToSyncFacotry.ReadModSync false");
 #endif
+            return false;
+        }
+
+        public static bool ReadManifest(XmlDocument xml, string modName, out ModSyncInfo info, out IHost host)
+        {
+            try
+            {
+                string version = null;
+                string manifestUri = null;
+                string downloadUri = null;
+                string aboutUrl = null;
+                if (TryGetNode(xml, "Manifest", out XmlNode parentNode))
+                {
+                    foreach (XmlNode n in parentNode.ChildNodes)
+                    {
+                        switch (n.Name)
+                        {
+                            case "version":
+                                version = n.InnerText;
+                                break;
+                            case "manifestUri":
+                                manifestUri = n.InnerText;
+                                int i = manifestUri.LastIndexOf("/");
+                                if (i != -1)
+                                    aboutUrl = manifestUri.Substring(0, i) + "/About.xml";
+                                break;
+                            case "downloadUri":
+                                downloadUri = n.InnerText;
+                                break;
+                        }
+                    }
+                }
+                if (version != null)
+                {
+                    info = new ModSyncInfo(modName, version);
+                    host = new ManifestHost(aboutUrl, manifestUri, downloadUri);
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to create ModSyncInfo for mod [" + modName + "]. " + e.GetType().Name + " " + e.Message);
+            }
+            info = null;
+            host = null;
             return false;
         }
     }
