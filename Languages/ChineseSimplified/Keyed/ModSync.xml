@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<ModSync>Mod同步</ModSync>
+	
+	<!-- ModSync Window -->
+	<ModSync.UpdateMods>更新Mod</ModSync.UpdateMods>
+	<ModSync.ShowingActiveMods>显示活跃的非Steam Mod</ModSync.ShowingActiveMods>
+	<ModSync.Update>更新</ModSync.Update>
+	<ModSync.NAModSync>N/A on ModSync</ModSync.NAModSync>
+	
+	<ModSync.ModName>Mod名字</ModSync.ModName>
+	<ModSync.LocalVersion>本地版本</ModSync.LocalVersion>
+	<ModSync.AvailableVersion>可用版本</ModSync.AvailableVersion>
+	<ModSync.GetUpdate>获取更新</ModSync.GetUpdate>
+	<ModSync.ModNotBreakingSave>MOD的作者已经声明，这次更新不会破坏现有的游戏存档</ModSync.ModNotBreakingSave>
+	
+	<!-- Mod Window -->
+	<ModSync.CreateModSyncFile>创建MOD同步文件</ModSync.CreateModSyncFile>
+	<ModSync.UpdateModSyncFile>更新MOD同步文件</ModSync.UpdateModSyncFile>
+	<!-- Top right text in the Mod window. {version} will be replaced by the mod's version -->
+	<ModSync.ModSyncVersion>Mod同步版本: {version}</ModSync.ModSyncVersion>
+	
+	<!-- Mod Update Window -->
+	<ModSync.UpdateOnModSyncNinja>Mod同步文件</ModSync.UpdateOnModSyncNinja>
+	<ModSync.InvalidSecurityKey>{mod_name}的安全密钥无效</ModSync.InvalidSecurityKey>
+	<!-- {previous_version} will be replaced with the mod's version that is stored in ModSync.ninja's database -->
+	<ModSync.PreviousVersion>上一个版本: {previous_version}</ModSync.PreviousVersion>
+	<ModSync.NewVersion>新版本</ModSync.NewVersion>
+	<ModSync.QuickCopy>快速复制</ModSync.QuickCopy>
+	<ModSync.SecurityKey>安全密钥</ModSync.SecurityKey>
+	<ModSync.PatchNotes>补丁说明（可选）</ModSync.PatchNotes>
+	<ModSync.BugFix>错误修复</ModSync.BugFix>
+	<ModSync.FeatureAdded>新增功能</ModSync.FeatureAdded>
+	<ModSync.LanguageUpdate>语言更新</ModSync.LanguageUpdate>
+	<ModSync.IsSaveBreaking>是否破坏存档</ModSync.IsSaveBreaking>
+	<ModSync.Host>主机</ModSync.Host>
+	<ModSync.Validate>验证</ModSync.Validate>
+	
+	<!-- Direct -->
+	<ModSync.AboutUri>关于Uri</ModSync.AboutUri>
+	<ModSync.ModSyncUri>Mod同步 Uri</ModSync.ModSyncUri>
+	<ModSync.DownloadUri>下载Uri</ModSync.DownloadUri>
+	
+	<!-- Github -->
+	<ModSync.Owner>所有者</ModSync.Owner>
+	<ModSync.Project>项目</ModSync.Project>
+	<ModSync.DownloadPage>下载页面</ModSync.DownloadPage>
+	<ModSync.Branch>分支</ModSync.Branch>
+	<ModSync.AboutDir>关于Dir</ModSync.AboutDir>
+	<ModSyncMainPage>主页</ModSyncMainPage>
+	<ModSyncReleases>发布</ModSyncReleases>
+	<ModSyncTags>标记</ModSyncTags>
+	
+	<!-- General Messages -->
+	<ModSync.FormIsValid>表格是有效的</ModSync.FormIsValid>
+	
+	<!-- Error Messages -->
+	<ModSync.OldVersion>该版本小于ModSync.ninja数据库中的当前版本</ModSync.OldVersion>
+	<ModSync.NotFound>无法找到这个mod</ModSync.NotFound>
+	<ModSync.InvalidKey>无效的安全密钥</ModSync.InvalidKey>
+	<ModSync.NoVersion>没有给出版本</ModSync.NoVersion>
+	<ModSync.DeletedMod>这个MOD被删除了</ModSync.DeletedMod>
+	<ModSync.UnverifiedMod>这个mod没有被验证</ModSync.UnverifiedMod>
+	<ModSync.DatabaseError>ModSync.ninja数据库出了问题，请稍后再试</ModSync.DatabaseError>
+	<ModSync.InvalidPatchNotes>补丁说明是无效的</ModSync.InvalidPatchNotes>
+	<ModSync.UnknownError>向ModSync.ninja.发送更新请求时出现了问题</ModSync.UnknownError>
+	<ModSync.UnableToAboutSyncFile>无法从主机上找到About.xml文件</ModSync.UnableToAboutSyncFile>
+	
+	<!-- Connection Stats -->
+	<ModSync.YouAreOffline>你离线了</ModSync.YouAreOffline>
+	<ModSync.CantConnectToModSync>法连接ModSync服务器，请稍后重试</ModSync.CantConnectToModSync>
+	<ModSync.UnknwonError>出了点差错:( \n 鼠标移到这个信息上，可以了解更多。</ModSync.UnknwonError>
+	<ModSync.PleaseWait>稍等，我正在工作</ModSync.PleaseWait>
+	<ModSync.Synced>连接 &amp; 同步!</ModSync.Synced>
+	
+	<!-- Mod-specific sync messages -->
+	<!-- {mod_name} will be replaced with the mod's name -->
+	<ModSync.UnknownVersion>{mod_name}在加入ModSync之前没有任何版本指示。\n由于这个原因，我们不能确定你当前的{mod_name}版本是什么，\n我们需要你在第一次更新时手动检查。\n\n</ModSync.UnknownVersion>
+	<ModSync.NotSupportedByModSync> {mod_name}不支持ModSync Ninja : :(\n可以让他们加入吗？ \n\n</ModSync.NotSupportedByModSync>
+</LanguageData>
