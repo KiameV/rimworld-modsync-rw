@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ModSync>ModSync</ModSync>
+
+  <!-- ModSync Window -->
+  <ModSync.UpdateMods>Update Mods</ModSync.UpdateMods>
+  <ModSync.ShowingActiveMods>アクティブな非SteamMODを表示中</ModSync.ShowingActiveMods>
+  <ModSync.Update>アップデート</ModSync.Update>
+  <ModSync.NAModSync>ModSyncの該当なし</ModSync.NAModSync>
+
+  <ModSync.ModName>Mod名</ModSync.ModName>
+  <ModSync.LocalVersion>ローカルバージョン</ModSync.LocalVersion>
+  <ModSync.AvailableVersion>利用可能なバージョン</ModSync.AvailableVersion>
+  <ModSync.GetUpdate>更新の取得</ModSync.GetUpdate>
+  <ModSync.ModNotBreakingSave>MOD作者によると、この更新で既存のセーブデータが破損することはありません。</ModSync.ModNotBreakingSave>
+
+  <!-- Mod Window -->
+  <ModSync.CreateModSyncFile>ModSyncファイルを新規作成</ModSync.CreateModSyncFile>
+  <ModSync.UpdateModSyncFile>ModSyncファイルを更新</ModSync.UpdateModSyncFile>
+  <!-- Top right text in the Mod window. {version} will be replaced by the mod's version -->
+  <ModSync.ModSyncVersion>ModSyncバージョン: {version}</ModSync.ModSyncVersion>
+
+  <!-- Mod Update Window -->
+  <ModSync.UpdateOnModSyncNinja>ModSyncファイル</ModSync.UpdateOnModSyncNinja>
+  <ModSync.InvalidSecurityKey>{mod_name}のセキュリティキーが無効です</ModSync.InvalidSecurityKey>
+  <!-- {previous_version} will be replaced with the mod's version that is stored in ModSync.ninja's database -->
+  <ModSync.PreviousVersion>以前のバージョン: {previous_version}</ModSync.PreviousVersion>
+  <ModSync.NewVersion>新しいバージョン</ModSync.NewVersion>
+  <ModSync.QuickCopy>コピー案</ModSync.QuickCopy>
+  <ModSync.SecurityKey>セキュリティキー</ModSync.SecurityKey>
+  <ModSync.PatchNotes>パッチノート (任意)</ModSync.PatchNotes>
+  <ModSync.BugFix>バグ修正</ModSync.BugFix>
+  <ModSync.FeatureAdded>機能の追加</ModSync.FeatureAdded>
+  <ModSync.LanguageUpdate>言語の更新</ModSync.LanguageUpdate>
+  <ModSync.IsSaveBreaking>既存のセーブデータとは非互換か</ModSync.IsSaveBreaking>
+  <ModSync.Host>ホスト</ModSync.Host>
+  <ModSync.Validate>有効化</ModSync.Validate>
+
+  <!-- Direct -->
+  <ModSync.AboutUri>About URI</ModSync.AboutUri>
+  <ModSync.ModSyncUri>ModSync URI</ModSync.ModSyncUri>
+  <ModSync.DownloadUri>Download URI</ModSync.DownloadUri>
+
+  <!-- Github -->
+  <ModSync.Owner>オーナー</ModSync.Owner>
+  <ModSync.Project>プロジェクト</ModSync.Project>
+  <ModSync.DownloadPage>ダウンロードページ</ModSync.DownloadPage>
+  <ModSync.Branch>ブランチ</ModSync.Branch>
+  <ModSync.AboutDir>Aboutディレクトリ</ModSync.AboutDir>
+  <ModSyncMainPage>メインページ</ModSyncMainPage>
+  <ModSyncReleases>リリース</ModSyncReleases>
+  <ModSyncTags>タグ</ModSyncTags>
+
+  <!-- General Messages -->
+  <ModSync.FormIsValid>フォームが有効</ModSync.FormIsValid>
+
+  <!-- Error Messages -->
+  <ModSync.OldVersion>ModSync.ninjaのデータベースに登録されている現在のバージョンよりも古いバージョンです。</ModSync.OldVersion>
+  <ModSync.NotFound>このMODを見つけることができません。</ModSync.NotFound>
+  <ModSync.InvalidKey>無効なセキュリティキー</ModSync.InvalidKey>
+  <ModSync.NoVersion>バージョン表記なし</ModSync.NoVersion>
+  <ModSync.DeletedMod>このMODは削除されました。</ModSync.DeletedMod>
+  <ModSync.UnverifiedMod>このMODは未検証です。</ModSync.UnverifiedMod>
+  <ModSync.DatabaseError>ModSync.ninjaのデータベースに問題が生じました。後でもう一度お試しください。</ModSync.DatabaseError>
+  <ModSync.InvalidPatchNotes>パッチノートが無効です。</ModSync.InvalidPatchNotes>
+  <ModSync.UnknownError>ModSync.ninjaに更新リクエストを送信する際に問題が生じました。</ModSync.UnknownError>
+  <ModSync.UnableToAboutSyncFile>ホストからAbout.xmlファイルを見つけられません。</ModSync.UnableToAboutSyncFile>
+
+  <!-- Connection Stats -->
+  <ModSync.YouAreOffline>オフラインです</ModSync.YouAreOffline>
+  <ModSync.CantConnectToModSync>ModSyncサーバーに接続できません。後でもう一度お試しください。</ModSync.CantConnectToModSync>
+  <ModSync.UnknwonError>何らかの問題が生じました。(´・ω・`)\nこのメッセージにマウスオーバーすると詳細が見られます。</ModSync.UnknwonError>
+  <ModSync.PleaseWait>ただいま作業中です。少々お待ちください。</ModSync.PleaseWait>
+  <ModSync.Synced>接続と同期に成功しました!</ModSync.Synced>
+
+  <!-- Mod-specific sync messages -->
+  <!-- {mod_name} will be replaced with the mod's name -->
+  <ModSync.UnknownVersion>{mod_name}はModSyncに参加する前にはバージョン表記がありませんでした。\nそのため、現在の{mod_name}のバージョンを確認することができず、最初の更新の際は手動で確認を行う必要があります。\n\n</ModSync.UnknownVersion>
+  <ModSync.NotSupportedByModSync>残念! {mod_name}はModSync Ninjaをサポートしていません。(´・ω・`) \n参加できないか頼んでみてはどうでしょうか? \n\n</ModSync.NotSupportedByModSync>
+
+</LanguageData>
